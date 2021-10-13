@@ -73,11 +73,13 @@ export default {
     },
     cancelEdit() {
       this.user = { ...this.$store.state.user.user };
+
       this.disabled = true;
     },
   },
   created() {
     this.initialize();
+    console.log(this.$store.state.user.user);
   },
 };
 </script>
