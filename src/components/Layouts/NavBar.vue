@@ -6,18 +6,22 @@
         v-for="(i, n) in navItems"
         :key="n"
         :to="i.to"
-        class="mr-8 font-bold "
+        class="mr-8 font-bold hover:text-primary "
         active-class="text-primary"
       >
         {{ i.title }}
       </router-link>
     </div>
     <div class="flex items-center">
-      <div class="mr-6 cursor-pointer  font-bold ">ENG</div>
+      <div
+        class="mr-6 cursor-pointer  font-bold hover:bg-gray-500 p-2 rounded-full"
+      >
+        ENG
+      </div>
 
-      <router-link to="/login">
+      <router-link to="/login" @click="logout">
         <div
-          class="bg-red-600 rounded-md  border-red-600 px-6 text-white py-1  cursor-pointer"
+          class="bg-red-600 rounded-md  border-red-600 hover:bg-red-900 px-6 text-white py-1  cursor-pointer"
         >
           Log out
         </div>
@@ -39,6 +43,12 @@ export default {
       { title: "PROFILE", to: "/profile", exact: false },
     ],
   }),
+  methods: {
+    logout() {
+      console.log("logging out");
+      localStorage.setItem("loggedIn", 0);
+    },
+  },
 };
 </script>
 

@@ -8,11 +8,13 @@
       </div>
       <div class="px-16 py-4 drop-shadow-2xl">
         <form @submit.prevent="submit">
-          <input
-            type="text"
-            placeholder="meeting name"
-            class="border border-gray-600 p-2 "
-          /><br />
+          <div v-for="(m, n) in fields" :key="n" class="mb-2">
+            <input
+              :type="m.type"
+              :placeholder="m.label"
+              class="border border-gray-600 p-2 "
+            />
+          </div>
           <button class="bg-primary w-full mt-2 text-white" type="submit">
             Create
           </button>
@@ -32,12 +34,11 @@
 export default {
   props: {
     closeDialog: Function,
+    fields: Array,
+    meetingObj: Object,
+    submit: Function,
   },
-  methods: {
-    submit() {
-      console.log("submitted");
-    },
-  },
+  methods: {},
 };
 </script>
 

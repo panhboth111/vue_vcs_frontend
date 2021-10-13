@@ -9,6 +9,9 @@
 import NavBar from "./components/Layouts/NavBar.vue";
 export default {
   components: { NavBar },
+  created() {
+    this.$store.dispatch("user/init");
+  },
 };
 </script>
 
