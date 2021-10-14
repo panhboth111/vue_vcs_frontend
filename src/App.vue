@@ -1,6 +1,6 @@
 <template>
   <div class="relative">
-    <NavBar v-if="$route.name !== 'Login'" />
+    <NavBar v-if="$route.name !== 'Login' && $route.name !== 'Meeting' " />
     <router-view />
   </div>
 </template>
