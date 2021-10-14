@@ -1,5 +1,5 @@
 <template>
-  <div class="pt-12 px-24">
+  <div class="pt-12 px-10 md:px-16 lg:px-16 xl:px18 pb-10">
     <div class="flex justify-between ">
       <input
         type="text"
@@ -34,7 +34,7 @@
       <div class="text-lg">
         <div class="font-light">Ongoing meetings</div>
         <div
-          class="grid grid-cols-1 gap-6  lg:grid-cols-5 xl:grid-cols-5 mt-4"
+          class="grid grid-cols-1 gap-6  lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 md:grid-cols-2 mt-4"
           v-if="meetings.length"
         >
           <MeetingCard
@@ -56,7 +56,7 @@
       </div>
       <div class="text-lg mt-6">
         <div class="font-light">Upcoming meetings</div>
-        <div class="grid grid-cols-1 gap-6  lg:grid-cols-5 xl:grid-cols-5 mt-4">
+        <div class="grid grid-cols-1 gap-6  lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 md:grid-cols-2 mt-4">
           <MeetingCard
             v-for="(m, n) in meetings"
             :key="n"

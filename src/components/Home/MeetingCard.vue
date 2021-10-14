@@ -3,14 +3,14 @@
     <div class="cursor-pointer drop-shadow rounded-lg hover:opacity-60 ">
       <img
         v-bind:src="require(`../../assets/images/${meetingThumbnail}`)"
-        class="rounded-t-lg max-h-48 w-full"
+        class="rounded-t-lg h-48  w-full"
       />
-      <div class="bg-gray-100 px-4 py-6 rounded-b-lg ">
-        <div class="font-bold text-lg leading-4 ">
+      <div class="bg-gray-100 px-4 py-6 rounded-b-lg">
+        <div class="font-bold text-lg leading-4 pb-4 truncate">
           {{ meetingName }}
         </div>
 
-        <div class="text-base font-bold mt-3 text-primary">
+        <div class="text-base font-bold text-primary">
           {{ meetingCreator }}
         </div>
         <div class="flex justify-between text-base mt-3 ">
