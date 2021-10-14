@@ -56,7 +56,7 @@
       </div>
       <div class="text-lg mt-6">
         <div class="font-light">Upcoming meetings</div>
-        <div class="grid grid-cols-1 gap-6  lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-5 md:grid-cols-4 mt-4">
+        <div class="grid grid-cols-1 gap-6  lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 md:grid-cols-2 mt-4">
           <MeetingCard
             v-for="(m, n) in meetings"
             :key="n"
