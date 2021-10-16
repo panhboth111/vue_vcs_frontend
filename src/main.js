@@ -5,7 +5,7 @@ import store from "./store";
 import "./index.css";
 import axios from "axios";
 
-axios.defaults.baseURL = "http://192.168.1.6:8080/api";
+axios.defaults.baseURL = "http://192.168.1.6:3000/api";
 createApp(App)
   .use(store)
   .use(router)
