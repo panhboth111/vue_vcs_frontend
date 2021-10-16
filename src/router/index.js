@@ -33,18 +33,12 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   const loggedIn = localStorage.getItem("authed");
-  if (to.fullPath === "/login") {
-    if (loggedIn == 1) {
-      next("/");
-    }
-  }
-  if (to.fullPath !== "/login") {
-    if (loggedIn == 0 || !loggedIn) {
-      const requestedPath = window.location.pathname
-      localStorage.setItem("requestedPath",requestedPath)
-      next("/login");
-    }
-  }
-  next();
+  if (to.fullPath === "/login" && loggedIn == 1) {
+    next("/");
+  } else if (to.fullPath !== "/login" && (loggedIn == 0 || !loggedIn)) {
+    const requestedPath = window.location.pathname;
+    localStorage.setItem("requestedPath", requestedPath);
+    next("/login");
+  } else next();
 });
 export default router;

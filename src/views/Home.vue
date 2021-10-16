@@ -1,30 +1,31 @@
 <template>
   <div class="pt-12 px-10 md:px-16 lg:px-16 xl:px18 pb-10">
-    
-    <div class="flex justify-between ">
+    <div class="lg:flex justify-between ">
       <input
         type="text"
-        class="  py-1 px-4 border border-black "
-        size="60"
+        class="  py-1 px-4 border border-black w-full lg:w-1/3 "
         placeholder="Search"
       />
-      <div class="relative">
+      <div class="relative mt-2 lg:m-0 z-10">
         <button
-          class="px-6 h-full bg-primary rounded-md text-white cursor-pointer"
+          class="px-6 py-1 w-full h-full bg-primary rounded-md text-white cursor-pointer"
           @click="dropdown = !dropdown"
         >
           START A MEETING
         </button>
-        <ul class="absolute border  w-full text-center" v-if="dropdown">
+        <ul
+          class="absolute border  w-full text-center bg-white"
+          v-if="dropdown"
+        >
           <li
             class="py-1 border border-gray-200 cursor-pointer hover:bg-gray-300"
-            @click="openDialog(0)"
+            @click="startInstantMeeting"
           >
             Instant meeting
           </li>
           <li
             class="py-1 border-gray-200 cursor-pointer hover:bg-gray-300"
-            @click="openDialog(1)"
+            @click="openDialog"
           >
             Schedule a meeting
           </li>
@@ -36,16 +37,12 @@
         <div class="font-light">Ongoing meetings</div>
         <div
           class="grid grid-cols-1 gap-6  lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 md:grid-cols-2 mt-4"
-          v-if="meetings.length"
+          v-if="onGoingMeetings.length"
         >
           <MeetingCard
-            v-for="(m, n) in meetings"
+            v-for="(m, n) in onGoingMeetings"
             :key="n"
-            :meetingName="m.meetingName"
-            :meetingCreator="m.meetingCreator"
-            :meetingCode="m.meetingCode"
-            :meetingDate="m.meetingDate"
-            :meetingThumbnail="m.meetingThumbnail"
+            :meetingObj="m"
           />
         </div>
         <div
@@ -57,14 +54,13 @@
       </div>
       <div class="text-lg mt-6">
         <div class="font-light">Upcoming meetings</div>
-        <div class="grid grid-cols-1 gap-6  lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 md:grid-cols-2 mt-4">
+        <div
+          class="grid grid-cols-1 gap-6  lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 md:grid-cols-2 mt-4"
+        >
           <MeetingCard
-            v-for="(m, n) in meetings"
+            v-for="(m, n) in upComingMeetings"
             :key="n"
-            :meetingName="m.meetingName"
-            :meetingCreator="m.meetingCreator"
-            :meetingDate="m.meetingDate"
-            :meetingThumbnail="m.meetingThumbnail"
+            :meetingObj="m"
           />
         </div>
       </div>
@@ -74,7 +70,15 @@
       :closeDialog="closeDialog"
       :meetingObj="meetingObj"
       :fields="fields"
-      :submit="actionType == 0 ? createInstantMeeting : scheduleMeeting"
+      :submit="scheduleMeeting"
+      :dropDownUsers="dropDownUsers"
+      :attendeesSearch="attendeesSearch"
+      :attendeeSelected="attendeeSelected"
+      :search="search"
+      :attendeesDropDown="attendeesDropDown"
+      :dropDownUsersClicked="dropDownUsersClicked"
+      :fieldInput="fieldInput"
+      :attendeeRemove="attendeeRemove"
     />
   </div>
 </template>
@@ -82,6 +86,7 @@
 <script>
 import MeetingCard from "../components/Home/MeetingCard.vue";
 import MeetingFormDialog from "../components/Home/MeetingFormDialog.vue";
+import axios from "axios";
 export default {
   components: {
     MeetingCard,
@@ -90,54 +95,144 @@ export default {
   data: () => ({
     dialog: false,
     dropdown: false,
+    attendeesDropDown: false,
     actionType: 0,
-    fields: [],
-    meetingObj: {},
-  }),
-  computed: {
-    meetings() {
-      return this.$store.state.meeting.meetings;
+    users: [
+      { id: 0, displayName: "Neak Panhboth", username: "panhboth" },
+      { id: 1, displayName: "John Cena", username: "johncena69" },
+      { id: 2, displayName: "Naruto Uzumaki", username: "naruto" },
+      { id: 3, displayName: "Noob Master", username: "noobmaster69" },
+    ],
+    dropDownUsers: [],
+    fields: [
+      { label: "Meeting Name", property: "title", type: "text" },
+      {
+        label: "Meeting start time",
+        property: "start_date",
+        type: "datetime-local",
+      },
+      {
+        label: "Meeting end time",
+        property: "end_date",
+        type: "datetime-local",
+      },
+    ],
+    meetingObj: {
+      title: "",
+      start_date: "",
+      end_date: "",
+      attendeeIds: [],
+      attendees: [],
     },
-  },
+    onGoingMeetings: [],
+    upComingMeetings: [],
+    search: "",
+  }),
+  computed: {},
   methods: {
-    openDialog(actionType) {
+    openDialog() {
       this.dialog = true;
-      this.actionType = actionType;
-      if (actionType == 0) {
-        this.fields = [
-          { label: "Meeting Name", property: "meetingName", type: "text" },
-        ];
-        this.meetingObj = { meetingName: "" };
-      } else {
-        this.fields = [
-          { label: "Meeting Name", property: "meetingName", type: "text" },
-          { label: "Meeting Date", property: "meetingDate", type: "text" },
+      this.dropdown = false;
+    },
+    attendeesSearch($event) {
+      this.search = $event.target.value;
+      this.dropDownUsers = this.users.filter(
+        (u) =>
+          u.username.toLowerCase().includes(this.search) ||
+          u.displayName.toLowerCase().includes(this.search)
+      );
+    },
+    fieldInput($event, property) {
+      this.meetingObj[property] = $event.target.value;
+    },
+    attendeeSelected(attendee) {
+      this.meetingObj.attendees.push(attendee);
+      this.meetingObj.attendeeIds.push(attendee.id);
+      this.users = this.users.filter((u) => u.id !== attendee.id);
+      this.dropDownUsers = this.users;
+      this.attendeesDropDown = false;
+    },
+    dropDownUsersClicked() {
+      this.attendeesDropDown = !this.attendeesDropDown;
+    },
+    attendeeRemove(attendee) {
+      this.meetingObj.attendees = this.meetingObj.attendees.filter(
+        (u) => u.id != attendee.id
+      );
+      this.meetingObj.attendeeIds = this.meetingObj.attendeeIds.filter(
+        (i) => i != attendee.id
+      );
+      this.users.push(attendee);
+      this.dropDownUsers = this.users;
+    },
+    async startInstantMeeting() {
+      try {
+        this.dropdown = false;
+        this.$store.dispatch("loading/toggleLoading", true);
+        const jwt_token = localStorage.getItem("jwt_token");
+        const res = await axios.post(
+          "/meeting",
+          {},
           {
-            label: "Meeting start time",
-            property: "meetingStart",
-            type: "text",
-          },
-          { label: "Meeting end time", property: "meetingEnd", type: "text" },
-
-        ];
-        this.meetingObj = {
-          meetingName: "",
-          meetingDate: "",
-          meetingStart: "",
-          meetingEnd: "",
-        };
+            headers: { Authorization: `Bearer ${jwt_token}` },
+          }
+        );
+        this.$store.dispatch("loading/toggleLoading", false);
+        if (res.status == 200) {
+          this.$router.push(`/meeting/${res.data["id"]}`);
+        }
+      } catch (error) {
+        this.$store.dispatch("loading/toggleLoading", false);
       }
     },
-    createInstantMeeting() {
-      this.$router.push("/meeting/testingrandommeeting");
+
+    async scheduleMeeting() {
+      try {
+        this.$store.dispatch("loading/toggleLoading", true);
+        const { attendees, ...data } = this.meetingObj;
+        const jwt_token = localStorage.getItem("jwt_token");
+        const res = await axios.post("/meeting/scheduled", data, {
+          headers: { Authorization: `Bearer ${jwt_token}` },
+        });
+        this.upComingMeetings.push(res.data);
+        this.dialog = false;
+        this.$store.dispatch("loading/toggleLoading", false);
+      } catch (error) {
+        this.$store.dispatch("loading/toggleLoading", false);
+      }
     },
-    scheduleMeeting() {},
+    async init() {
+      try {
+        const jwt_token = localStorage.getItem("jwt_token");
+        const res = await axios.get("/user/all", {
+          headers: { Authorization: `Bearer ${jwt_token}` },
+        });
+        const onGoingMeetings = await axios.get("/meeting/ongoing", {
+          headers: { Authorization: `Bearer ${jwt_token}` },
+        });
+        console.log(onGoingMeetings.data);
+        const upComingMeetings = await axios.get("/meeting/upcoming", {
+          headers: { Authorization: `Bearer ${jwt_token}` },
+        });
+        this.onGoingMeetings = onGoingMeetings.data;
+        this.upComingMeetings = upComingMeetings.data;
+        this.users = res.data.filter(
+          (u) => u.id != this.$store.state.user.user.id
+        );
+        this.dropDownUsers = this.users;
+      } catch (error) {
+        this.onGoingMeetings = [];
+        this.upComingMeetings = [];
+        this.users = [];
+        this.dropDownUsers = [];
+      }
+    },
     closeDialog() {
-      console.log("trigerred");
       this.dialog = false;
-      this.meetingObj = {};
-      this.fields = [];
     },
+  },
+  async created() {
+    await this.init();
   },
 };
 </script>

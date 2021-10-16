@@ -2,12 +2,11 @@
   <div class="flex justify-center items-center bg-red-300 h-64 cover_img ">
     <div class="bg-accent text-white py-5 px-10 rounded-full text-2xl">NP</div>
   </div>
-  <div class="mx-64 mt-10">
+  <div class="mt-10">
     <div class="flex justify-center text-xl font-bold">
       <p>
         <span class="mr-4"> USER INFORMATION</span>
-        
-        
+
         <i
           class="fa fa-pencil cursor-pointer hover:bg-gray-200 p-2 rounded-full "
           aria-hidden="true"
@@ -16,9 +15,9 @@
       </p>
     </div>
     <div class="flex justify-center">
-      <form action="" class="mt-2 text-lg">
+      <form action="" class="mt-2 text-lg px-2">
         <div v-for="(f, n) in fields" :key="n" class="flex justify-between">
-          <label :for="f.property" class="mr-10">{{ f.label }} </label>
+          <label :for="f.property" class="mr-2 lg:mr-10">{{ f.label }} </label>
           <input
             :type="f.type"
             :name="f.property"
@@ -58,7 +57,6 @@ export default {
       { label: "Display Name", property: "displayName", type: "text" },
       { label: "Email", property: "email", type: "text" },
       { label: "Phone", property: "phone", type: "text" },
-
     ],
     user: {},
     disabled: true,

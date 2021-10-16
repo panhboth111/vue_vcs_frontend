@@ -1,5 +1,7 @@
 <template>
-  <nav class="flex justify-between px-10 lg:px-24 bg-gray-100 items-center py-2">
+  <nav
+    class="flex justify-between px-10 lg:px-24 bg-gray-100 items-center py-2"
+  >
     <router-link to="/"><div class="text-xl font-bold ">VCS</div></router-link>
     <div class="hidden lg:flex">
       <router-link
@@ -12,22 +14,25 @@
         {{ i.title }}
       </router-link>
     </div>
-    <div class="flex items-center">
+    <div class="flex items-center hidden lg:flex">
       <div
         class="mr-6 cursor-pointer  font-bold hover:bg-gray-500 p-2 rounded-full"
       >
         ENG
       </div>
 
-
-        <div
+      <div
         @click="logout"
-          class="bg-red-600 rounded-md  border-red-600 hover:bg-red-900 px-6 text-white py-1  cursor-pointer"
-        >
-          Log out
-        </div>
-
+        class="bg-red-600 rounded-md  border-red-600 hover:bg-red-900 px-6 text-white py-1  cursor-pointer"
+      >
+        Log out
+      </div>
     </div>
+    <i
+      class="fa fa-bars cursor-pointer lg:hidden"
+      aria-hidden="true"
+      @click="toggleDrawer"
+    ></i>
   </nav>
 </template>
 
@@ -44,11 +49,14 @@ export default {
       { title: "PROFILE", to: "/profile", exact: false },
     ],
   }),
+  props: {
+    toggleDrawer: Function,
+  },
   methods: {
     logout() {
-      localStorage.setItem("jwt_token",null)
+      localStorage.setItem("jwt_token", null);
       localStorage.setItem("loggedIn", 0);
-      window.location.reload()
+      window.location.reload();
     },
   },
 };
