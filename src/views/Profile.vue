@@ -6,6 +6,8 @@
     <div class="flex justify-center text-xl font-bold">
       <p>
         <span class="mr-4"> USER INFORMATION</span>
+        
+        
         <i
           class="fa fa-pencil cursor-pointer hover:bg-gray-200 p-2 rounded-full "
           aria-hidden="true"
@@ -56,7 +58,7 @@ export default {
       { label: "Display Name", property: "displayName", type: "text" },
       { label: "Email", property: "email", type: "text" },
       { label: "Phone", property: "phone", type: "text" },
-      { label: "Password", property: "password", type: "password" },
+
     ],
     user: {},
     disabled: true,
@@ -79,7 +81,6 @@ export default {
   },
   created() {
     this.initialize();
-    console.log(this.$store.state.user.user);
   },
 };
 </script>

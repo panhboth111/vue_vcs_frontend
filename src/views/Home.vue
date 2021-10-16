@@ -1,5 +1,6 @@
 <template>
   <div class="pt-12 px-10 md:px-16 lg:px-16 xl:px18 pb-10">
+    
     <div class="flex justify-between ">
       <input
         type="text"
@@ -117,6 +118,7 @@ export default {
             type: "text",
           },
           { label: "Meeting end time", property: "meetingEnd", type: "text" },
+
         ];
         this.meetingObj = {
           meetingName: "",

@@ -39,8 +39,9 @@ router.beforeEach((to, from, next) => {
     }
   }
   if (to.fullPath !== "/login") {
-    if (loggedIn == 0) {
-      console.log("not logged in");
+    if (loggedIn == 0 || !loggedIn) {
+      const requestedPath = window.location.pathname
+      localStorage.setItem("requestedPath",requestedPath)
       next("/login");
     }
   }

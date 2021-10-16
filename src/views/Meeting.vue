@@ -13,6 +13,7 @@ export default {
   }),
   methods: {
     startMeeting() {
+      const user = this.$store.state.user.user
       this.options = {
         roomName: this.$route.params.id,
         width: "100%",
@@ -23,7 +24,7 @@ export default {
         },
         parentNode: document.querySelector("#meet"),
         userInfo: {
-          displayName: "testing user",
+          displayName: user.displayName,
         },
       };
       this.api = new window.JitsiMeetExternalAPI(this.domain, this.options);
@@ -39,6 +40,7 @@ export default {
     if (window.JitsiMeetExternalAPI) {
       this.startMeeting();
     }
+    localStorage.setItem("requestedPath","")
   },
 };
 </script>

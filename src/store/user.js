@@ -1,24 +1,31 @@
+import axios from "axios"
 export default {
   namespaced: true,
   state: {
-    user: null,
+    user: { username: "" },
   },
   getters: {},
   mutations: {
     init: (state, user) => (state.user = user),
   },
   actions: {
-    init(ctx) {
-      console.log("init");
-      const loggedIn = localStorage.getItem("loggedIn");
-      const user = {
-        username: "johncena",
-        displayName: "John Cena",
-        email: "johncena69@gmail.com",
-        phone: "012 123 123",
-        password: "johncena168",
-      };
-      if (loggedIn == 1) ctx.commit("init", user);
+    async init(ctx) {
+      const access_token = localStorage.getItem("jwt_token");
+      if (access_token != "null") {
+        const res = await axios.get("/user", {
+          headers: { Authorization: `Bearer ${access_token}` },
+        });
+        
+        if (res.status == 200) {
+          ctx.commit("init", res.data);
+          localStorage.setItem("authed", 1);
+        } else {
+          localStorage.setItem("authed", 0);
+        }
+      }
+      else{
+        localStorage.setItem("authed", 0);
+      }
     },
   },
 };
