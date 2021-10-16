@@ -33,17 +33,27 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   data: () => ({
     loginUser: {
       username: "",
       password: "",
     },
+    errorMessage: {
+      display: false,
+      message: "",
+    },
   }),
   methods: {
-    login() {
-      localStorage.setItem("loggedIn", 1);
-      this.$router.push("/");
+    async login() {
+      const res = await axios.post("/auth/login", this.loginUser);
+      if (res.status == 201) {
+        const access_token = res.data["access_token"];
+        localStorage.setItem("jwt_token", access_token);
+        localStorage.setItem("authed", 1);
+        window.location.replace("/");
+      }
     },
   },
 };

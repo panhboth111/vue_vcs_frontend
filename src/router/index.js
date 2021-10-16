@@ -32,8 +32,7 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  const loggedIn = localStorage.getItem("loggedIn");
-  console.log(loggedIn);
+  const loggedIn = localStorage.getItem("authed");
   if (to.fullPath === "/login") {
     if (loggedIn == 1) {
       next("/");
