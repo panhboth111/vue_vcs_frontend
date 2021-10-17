@@ -6,7 +6,7 @@
         class="  py-1 px-4 border border-black w-full lg:w-1/3 "
         placeholder="Search"
       />
-      <div class="relative mt-2 lg:m-0 z-10">
+      <div class="relative mt-2 lg:m-0">
         <button
           class="px-6 py-1 w-full h-full bg-primary rounded-md text-white cursor-pointer"
           @click="dropdown = !dropdown"
@@ -97,12 +97,7 @@ export default {
     dropdown: false,
     attendeesDropDown: false,
     actionType: 0,
-    users: [
-      { id: 0, displayName: "Neak Panhboth", username: "panhboth" },
-      { id: 1, displayName: "John Cena", username: "johncena69" },
-      { id: 2, displayName: "Naruto Uzumaki", username: "naruto" },
-      { id: 3, displayName: "Noob Master", username: "noobmaster69" },
-    ],
+    users: [],
     dropDownUsers: [],
     fields: [
       { label: "Meeting Name", property: "title", type: "text" },
@@ -133,6 +128,7 @@ export default {
     openDialog() {
       this.dialog = true;
       this.dropdown = false;
+      this.$store.dispatch("ui/toggleDialogDisplay", true);
     },
     attendeesSearch($event) {
       this.search = $event.target.value;
@@ -168,7 +164,7 @@ export default {
     async startInstantMeeting() {
       try {
         this.dropdown = false;
-        this.$store.dispatch("loading/toggleLoading", true);
+        this.$store.dispatch("ui/toggleLoading", true);
         const jwt_token = localStorage.getItem("jwt_token");
         const res = await axios.post(
           "/meeting",
@@ -177,18 +173,18 @@ export default {
             headers: { Authorization: `Bearer ${jwt_token}` },
           }
         );
-        this.$store.dispatch("loading/toggleLoading", false);
+        this.$store.dispatch("ui/toggleLoading", false);
         if (res.status == 200) {
           this.$router.push(`/meeting/${res.data["id"]}`);
         }
       } catch (error) {
-        this.$store.dispatch("loading/toggleLoading", false);
+        this.$store.dispatch("ui/toggleLoading", false);
       }
     },
 
     async scheduleMeeting() {
       try {
-        this.$store.dispatch("loading/toggleLoading", true);
+        this.$store.dispatch("ui/toggleLoading", true);
         const { attendees, ...data } = this.meetingObj;
         const jwt_token = localStorage.getItem("jwt_token");
         const res = await axios.post("/meeting/scheduled", data, {
@@ -196,9 +192,9 @@ export default {
         });
         this.upComingMeetings.push(res.data);
         this.dialog = false;
-        this.$store.dispatch("loading/toggleLoading", false);
+        this.$store.dispatch("ui/toggleLoading", false);
       } catch (error) {
-        this.$store.dispatch("loading/toggleLoading", false);
+        this.$store.dispatch("ui/toggleLoading", false);
       }
     },
     async init() {
@@ -229,6 +225,7 @@ export default {
     },
     closeDialog() {
       this.dialog = false;
+      this.$store.dispatch("ui/toggleDialogDisplay", true);
     },
   },
   async created() {

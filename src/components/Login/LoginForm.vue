@@ -49,9 +49,9 @@ export default {
   methods: {
     async login() {
       try {
-        this.$store.dispatch("loading/toggleLoading", true);
+        this.$store.dispatch("ui/toggleLoading", true);
         const res = await axios.post("/auth/login", this.loginUser);
-        this.$store.dispatch("loading/toggleLoading", false);
+        this.$store.dispatch("ui/toggleLoading", false);
         if (res.status == 201) {
           const access_token = res.data["access_token"];
           localStorage.setItem("jwt_token", access_token);
@@ -65,7 +65,7 @@ export default {
       } catch (error) {
         this.errorMessage.display = true;
         this.errorMessage.message = "something went wrong please try again";
-        this.$store.dispatch("loading/toggleLoading", false);
+        this.$store.dispatch("ui/toggleLoading", false);
       }
     },
   },

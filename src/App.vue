@@ -6,7 +6,7 @@
     />
     <Drawer v-if="drawer" />
     <router-view />
-    <LoadingDialog v-if="$store.state.loading.loading" />
+    <LoadingDialog v-if="$store.state.ui.loading" />
   </div>
 </template>
 

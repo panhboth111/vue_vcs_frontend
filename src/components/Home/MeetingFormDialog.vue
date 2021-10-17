@@ -8,12 +8,37 @@
       </div>
       <div class="px-16 py-4 drop-shadow-2xl">
         <form @submit.prevent="submit">
-          <div v-for="(m, n) in fields" :key="n" class="mb-2">
+          <div class="mb-2">
             <input
-              :type="m.type"
-              :placeholder="m.label"
-              @input="fieldInput($event, m.property)"
-              :value="meetingObj[m.property]"
+              type="text"
+              placeholder="title"
+              @input="fieldInput($event, 'title')"
+              required
+              class="border border-gray-600 p-2 w-full "
+            />
+          </div>
+          <div class="mb-2">
+            <input
+              type="datetime-local"
+              :min="getISOStringWithoutSecsAndMillisecs1(new Date())"
+              placeholder="start"
+              @input="fieldInput($event, 'start_date')"
+              required
+              class="border border-gray-600 p-2 w-full "
+            />
+          </div>
+          <div class="mb-2">
+            <input
+              type="datetime-local"
+              placeholder="end"
+              :min="
+                meetingObj.start_date
+                  ? getISOStringWithoutSecsAndMillisecs1(
+                      new Date(meetingObj.start_date)
+                    )
+                  : getISOStringWithoutSecsAndMillisecs1(new Date())
+              "
+              @input="fieldInput($event, 'end_date')"
               required
               class="border border-gray-600 p-2 w-full "
             />
@@ -87,7 +112,14 @@ export default {
     attendeeRemove: Function,
   },
 
-  methods: {},
+  methods: {
+    getISOStringWithoutSecsAndMillisecs1(date) {
+      const dateAndTime = date.toISOString().split("T");
+      const time = dateAndTime[1].split(":");
+
+      return dateAndTime[0] + "T" + time[0] + ":" + time[1];
+    },
+  },
 };
 </script>
 

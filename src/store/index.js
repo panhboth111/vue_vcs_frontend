@@ -1,12 +1,12 @@
 import { createStore } from "vuex";
 import user from "./user";
 import meeting from "./meeting";
-import loading from "./loading";
+import ui from "./ui";
 export default createStore({
   state: {
     test: "hiiii",
   },
   mutations: {},
   actions: {},
-  modules: { user, meeting, loading },
+  modules: { user, meeting, ui },
 });
