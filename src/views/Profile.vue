@@ -8,14 +8,14 @@
         <span class="mr-4"> USER INFORMATION</span>
 
         <i
-          class="fa fa-pencil cursor-pointer hover:bg-gray-200 p-2 rounded-full "
+          class="fas fa-camera fa-xs cursor-pointer hover:bg-gray-200 p-2 rounded-full "
           aria-hidden="true"
           @click="toggleEdit"
         ></i>
       </p>
     </div>
     <div class="flex justify-center">
-      <form action="" class="mt-2 text-lg px-2">
+      <form @submit.prevent="submit" class="mt-2 text-lg px-2">
         <div v-for="(f, n) in fields" :key="n" class="flex justify-between">
           <label :for="f.property" class="mr-2 lg:mr-10">{{ f.label }} </label>
           <input
@@ -28,7 +28,7 @@
             :disabled="disabled"
           />
         </div>
-
+        <div class="text-red">{{ error }}</div>
         <button
           type="submit"
           class="bg-primary text-white w-full mt-4"
@@ -49,17 +49,18 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   components: {},
   data: () => ({
     fields: [
-      { label: "Username", property: "username", type: "text" },
       { label: "Display Name", property: "displayName", type: "text" },
       { label: "Email", property: "email", type: "text" },
       { label: "Phone", property: "phone", type: "text" },
     ],
 
     disabled: true,
+    error: null,
   }),
   computed: {
     user() {
@@ -72,6 +73,27 @@ export default {
         this.$store.dispatch("user/resetUser");
       }
       this.disabled = !this.disabled;
+    },
+    async submit() {
+      try {
+        this.$store.dispatch("ui/toggleLoading", true);
+        const {
+          username,
+          ...submitUserData
+        } = this.$store.state.user.displayUser;
+        console.log(submitUserData);
+        const jwt_token = localStorage.getItem("jwt_token");
+        const res = await axios.put("/user", submitUserData, {
+          headers: { Authorization: `Bearer ${jwt_token}` },
+        });
+        console.log(res.data);
+        this.$store.dispatch("ui/toggleLoading", false);
+        this.disabled = true;
+      } catch (error) {
+        console.log(error);
+        this.error = "something went wrong please check again";
+        this.$store.dispatch("ui/toggleLoading", false);
+      }
     },
     cancelEdit() {
       this.$store.dispatch("user/resetUser");

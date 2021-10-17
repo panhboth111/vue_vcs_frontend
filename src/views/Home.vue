@@ -5,6 +5,8 @@
         type="text"
         class="  py-1 px-4 border border-black w-full lg:w-1/3 "
         placeholder="Search"
+        v-model="meetingSearch"
+        @input="meetingSearched"
       />
       <div class="relative mt-2 lg:m-0">
         <button
@@ -79,7 +81,8 @@
       :dropDownUsersClicked="dropDownUsersClicked"
       :fieldInput="fieldInput"
       :attendeeRemove="attendeeRemove"
-      :attendeesFieldBlur="attendeesFieldBlur"
+      :participantSelected="participantSelected"
+      :participantClicked="participantClicked"
     />
   </div>
 </template>
@@ -119,16 +122,26 @@ export default {
       end_date: "",
       attendeeIds: [],
       attendees: [],
+      attendeeValue: "",
     },
     onGoingMeetings: [],
     upComingMeetings: [],
     search: "",
+    meetingSearch: "",
   }),
   computed: {},
   methods: {
+    participantSelected($event) {
+      console.log($event);
+      $event.target.value = "";
+    },
+    participantClicked() {
+      console.log("trigerred");
+    },
     attendeesFieldBlur() {
       this.attendeesDropDown = false;
     },
+    meetingSearched() {},
     openDialog() {
       this.dialog = true;
       this.dropdown = false;

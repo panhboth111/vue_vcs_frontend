@@ -12,6 +12,10 @@ export default {
       state.displayUser = { ...user };
     },
     resetUser: (state, user) => (state.displayUser = { ...state.user }),
+    setUser: (state, data) => {
+      state.user = { ...data };
+      state.displayUser = { ...data };
+    },
   },
   actions: {
     async init(ctx) {
@@ -37,6 +41,9 @@ export default {
     },
     resetUser(ctx) {
       ctx.commit("resetUser");
+    },
+    editUser(ctx, data) {
+      ctx.commit("editUser", data);
     },
   },
 };

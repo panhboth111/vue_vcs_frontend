@@ -43,6 +43,7 @@
               class="border border-gray-600 p-2 w-full "
             />
           </div>
+
           <div>
             <input
               type="text"
@@ -112,6 +113,8 @@ export default {
     fieldInput: Function,
     attendeeRemove: Function,
     attendeesFieldBlur: Function,
+    participantSelected: Function,
+    participantClicked: Function,
   },
 
   methods: {
