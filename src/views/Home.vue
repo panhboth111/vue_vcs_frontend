@@ -79,6 +79,7 @@
       :dropDownUsersClicked="dropDownUsersClicked"
       :fieldInput="fieldInput"
       :attendeeRemove="attendeeRemove"
+      :attendeesFieldBlur="attendeesFieldBlur"
     />
   </div>
 </template>
@@ -125,6 +126,9 @@ export default {
   }),
   computed: {},
   methods: {
+    attendeesFieldBlur() {
+      this.attendeesDropDown = false;
+    },
     openDialog() {
       this.dialog = true;
       this.dropdown = false;

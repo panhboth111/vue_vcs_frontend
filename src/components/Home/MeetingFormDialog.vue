@@ -47,9 +47,11 @@
             <input
               type="text"
               placeholder="Invite Participants"
-              class="border border-gray-600 p-2 w-full "
+              class="border
+            border-gray-600 p-2 w-full "
               @input="attendeesSearch($event)"
               @click="dropDownUsersClicked"
+              @blur="attendeesFieldBlur"
             />
             <div class="relative" v-if="attendeesDropDown">
               <ul class="absolute bg-white w-full">
@@ -110,6 +112,7 @@ export default {
     dropDownUsersClicked: Function,
     fieldInput: Function,
     attendeeRemove: Function,
+    attendeesFieldBlur: Function,
   },
 
   methods: {
@@ -118,6 +121,9 @@ export default {
       const time = dateAndTime[1].split(":");
 
       return dateAndTime[0] + "T" + time[0] + ":" + time[1];
+    },
+    test() {
+      console.log("testing");
     },
   },
 };
