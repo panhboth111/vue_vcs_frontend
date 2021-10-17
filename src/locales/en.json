@@ -1,0 +1,18 @@
+{
+  "nav": {
+    "home": "HOME",
+    "profile": "PROFILE",
+    "logout": "Log Out"
+  },
+  "start_a_meeting": "Start a meeting",
+  "ongoing_meetings": "Ongoing meetings",
+  "upcoming_meetings": "Upcoming meetings",
+  "schedule_meeting": "Schedule a meeting",
+  "instant_meeting": "Instant meeting",
+  "profile": {
+    "user_information": "User Information",
+    "display_name": "Display Name",
+    "email": "Email",
+    "phone": "Phone"
+  }
+}

@@ -13,7 +13,7 @@
           class="px-6 py-1 w-full h-full bg-primary rounded-md text-white cursor-pointer"
           @click="dropdown = !dropdown"
         >
-          START A MEETING
+          {{ $t("start_a_meeting") }}
         </button>
         <ul
           class="absolute border  w-full text-center bg-white"
@@ -23,20 +23,20 @@
             class="py-1 border border-gray-200 cursor-pointer hover:bg-gray-300"
             @click="startInstantMeeting"
           >
-            Instant meeting
+            {{ $t("instant_meeting") }}
           </li>
           <li
             class="py-1 border-gray-200 cursor-pointer hover:bg-gray-300"
             @click="openDialog"
           >
-            Schedule a meeting
+            {{ $t("schedule_meeting") }}
           </li>
         </ul>
       </div>
     </div>
     <div class="mt-10 ">
       <div class="text-lg">
-        <div class="font-light">Ongoing meetings</div>
+        <div class="font-light">{{ $t("ongoing_meetings") }}</div>
         <div
           class="grid grid-cols-1 gap-6  lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 md:grid-cols-2 mt-4"
           v-if="onGoingMeetings.length"
@@ -55,7 +55,7 @@
         </div>
       </div>
       <div class="text-lg mt-6">
-        <div class="font-light">Upcoming meetings</div>
+        <div class="font-light">{{ $t("upcoming_meetings") }}</div>
         <div
           class="grid grid-cols-1 gap-6  lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 md:grid-cols-2 mt-4"
         >

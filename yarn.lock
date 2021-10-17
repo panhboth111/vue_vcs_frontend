@@ -944,6 +944,92 @@
     cssnano-preset-default "^4.0.0"
     postcss "^7.0.0"
 
+"@intlify/bundle-utils@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.npmmirror.com/@intlify/bundle-utils/download/@intlify/bundle-utils-0.3.0.tgz#66d4b68d3135fb2acb73ce1a54e386099f38a52d"
+  integrity sha1-ZtS2jTE1+yrLc84aVOOGCZ84pS0=
+  dependencies:
+    "@intlify/core" "^9.1.6"
+    "@intlify/message-compiler" "^9.1.6"
+    "@intlify/shared" "^9.1.6"
+    jsonc-eslint-parser "^1.0.1"
+    source-map "^0.6.1"
+    yaml-eslint-parser "^0.3.2"
+
+"@intlify/core-base@9.1.9":
+  version "9.1.9"
+  resolved "https://registry.npmmirror.com/@intlify/core-base/download/@intlify/core-base-9.1.9.tgz#e4e8c951010728e4af3a0d13d74cf3f9e7add7f6"
+  integrity sha1-5OjJUQEHKOSvOg0T10zz+eet1/Y=
+  dependencies:
+    "@intlify/devtools-if" "9.1.9"
+    "@intlify/message-compiler" "9.1.9"
+    "@intlify/message-resolver" "9.1.9"
+    "@intlify/runtime" "9.1.9"
+    "@intlify/shared" "9.1.9"
+    "@intlify/vue-devtools" "9.1.9"
+
+"@intlify/core@^9.1.6":
+  version "9.1.9"
+  resolved "https://registry.npmmirror.com/@intlify/core/download/@intlify/core-9.1.9.tgz#774e739a2ab4ac460a348a35eb0260e787d50556"
+  integrity sha1-d05zmiq0rEYKNIo16wJg54fVBVY=
+  dependencies:
+    "@intlify/core-base" "9.1.9"
+
+"@intlify/devtools-if@9.1.9":
+  version "9.1.9"
+  resolved "https://registry.npmmirror.com/@intlify/devtools-if/download/@intlify/devtools-if-9.1.9.tgz#a30e1dd1256ff2c5c98d8d75d075384fba898e5d"
+  integrity sha1-ow4d0SVv8sXJjY110HU4T7qJjl0=
+  dependencies:
+    "@intlify/shared" "9.1.9"
+
+"@intlify/message-compiler@9.1.9", "@intlify/message-compiler@^9.1.6":
+  version "9.1.9"
+  resolved "https://registry.npmmirror.com/@intlify/message-compiler/download/@intlify/message-compiler-9.1.9.tgz#1193cbd224a71c2fb981455b8534a3c766d2948d"
+  integrity sha1-EZPL0iSnHC+5gUVbhTSjx2bSlI0=
+  dependencies:
+    "@intlify/message-resolver" "9.1.9"
+    "@intlify/shared" "9.1.9"
+    source-map "0.6.1"
+
+"@intlify/message-resolver@9.1.9":
+  version "9.1.9"
+  resolved "https://registry.npmmirror.com/@intlify/message-resolver/download/@intlify/message-resolver-9.1.9.tgz#3155ccd2f5e6d0dc16cad8b7f1d8e97fcda05bfc"
+  integrity sha1-MVXM0vXm0NwWyti38djpf82gW/w=
+
+"@intlify/runtime@9.1.9":
+  version "9.1.9"
+  resolved "https://registry.npmmirror.com/@intlify/runtime/download/@intlify/runtime-9.1.9.tgz#2c12ce29518a075629efed0a8ed293ee740cb285"
+  integrity sha1-LBLOKVGKB1Yp7+0KjtKT7nQMsoU=
+  dependencies:
+    "@intlify/message-compiler" "9.1.9"
+    "@intlify/message-resolver" "9.1.9"
+    "@intlify/shared" "9.1.9"
+
+"@intlify/shared@9.1.9", "@intlify/shared@^9.1.6", "@intlify/shared@^9.1.7":
+  version "9.1.9"
+  resolved "https://registry.npmmirror.com/@intlify/shared/download/@intlify/shared-9.1.9.tgz#0baaf96128b85560666bec784ffb01f6623cc17a"
+  integrity sha1-C6r5YSi4VWBma+x4T/sB9mI8wXo=
+
+"@intlify/vue-devtools@9.1.9":
+  version "9.1.9"
+  resolved "https://registry.npmmirror.com/@intlify/vue-devtools/download/@intlify/vue-devtools-9.1.9.tgz#2be8f4dbe7f7ed4115676eb32348141d411e426b"
+  integrity sha1-K+j02+f37UEVZ26zI0gUHUEeQms=
+  dependencies:
+    "@intlify/message-resolver" "9.1.9"
+    "@intlify/runtime" "9.1.9"
+    "@intlify/shared" "9.1.9"
+
+"@intlify/vue-i18n-loader@^3.0.0":
+  version "3.2.0"
+  resolved "https://registry.npmmirror.com/@intlify/vue-i18n-loader/download/@intlify/vue-i18n-loader-3.2.0.tgz#ed4a60c77dd635171032550c69a11b81309b0b0f"
+  integrity sha1-7Upgx33WNRcQMlUMaaEbgTCbCw8=
+  dependencies:
+    "@intlify/bundle-utils" "^0.3.0"
+    "@intlify/shared" "^9.1.7"
+    js-yaml "^4.1.0"
+    json5 "^2.2.0"
+    loader-utils "^2.0.0"
+
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
   resolved "https://registry.npm.taobao.org/@mrmlnc/readdir-enhanced/download/@mrmlnc/readdir-enhanced-2.2.1.tgz#524af240d1a360527b730475ecfa1344aa540dde"
@@ -1460,7 +1546,7 @@
   optionalDependencies:
     prettier "^1.18.2"
 
-"@vue/devtools-api@^6.0.0-beta.11", "@vue/devtools-api@^6.0.0-beta.14":
+"@vue/devtools-api@^6.0.0-beta.11", "@vue/devtools-api@^6.0.0-beta.14", "@vue/devtools-api@^6.0.0-beta.7":
   version "6.0.0-beta.19"
   resolved "https://registry.npmmirror.com/@vue/devtools-api/download/@vue/devtools-api-6.0.0-beta.19.tgz#f8e88059daa424515992426a0c7ea5cde07e99bf"
   integrity sha1-+OiAWdqkJFFZkkJqDH6lzeB+mb8=
@@ -1710,7 +1796,7 @@ acorn@^6.4.1:
   resolved "https://registry.nlark.com/acorn/download/acorn-6.4.2.tgz#35866fd710528e92de10cf06016498e47e39e1e6"
   integrity sha1-NYZv1xBSjpLeEM8GAWSY5H454eY=
 
-acorn@^7.0.0, acorn@^7.1.1, acorn@^7.4.0:
+acorn@^7.0.0, acorn@^7.1.1, acorn@^7.4.0, acorn@^7.4.1:
   version "7.4.1"
   resolved "https://registry.nlark.com/acorn/download/acorn-7.4.1.tgz#feaed255973d2e77555b83dbc08851a6c63520fa"
   integrity sha1-/q7SVZc9LndVW4PbwIhRpsY1IPo=
@@ -1838,6 +1924,11 @@ argparse@^1.0.7:
   integrity sha1-vNZ5HqWuCXJeF+WtmIE0zUCz2RE=
   dependencies:
     sprintf-js "~1.0.2"
+
+argparse@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.npm.taobao.org/argparse/download/argparse-2.0.1.tgz#246f50f3ca78a3240f6c997e8a9bd1eac49e4b38"
+  integrity sha1-JG9Q88p4oyQPbJl+ipvR6sSeSzg=
 
 arr-diff@^4.0.0:
   version "4.0.0"
@@ -2568,6 +2659,16 @@ cli-spinners@^2.0.0:
   resolved "https://registry.npmmirror.com/cli-spinners/download/cli-spinners-2.6.1.tgz?cache=0&sync_timestamp=1633109901725&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fcli-spinners%2Fdownload%2Fcli-spinners-2.6.1.tgz#adc954ebe281c37a6319bfa401e6dd2488ffb70d"
   integrity sha1-rclU6+KBw3pjGb+kAebdJIj/tw0=
 
+cli-table3@^0.5.1:
+  version "0.5.1"
+  resolved "https://registry.nlark.com/cli-table3/download/cli-table3-0.5.1.tgz#0252372d94dfc40dbd8df06005f48f31f656f202"
+  integrity sha1-AlI3LZTfxA29jfBgBfSPMfZW8gI=
+  dependencies:
+    object-assign "^4.1.0"
+    string-width "^2.1.1"
+  optionalDependencies:
+    colors "^1.1.2"
+
 cli-width@^3.0.0:
   version "3.0.0"
   resolved "https://registry.nlark.com/cli-width/download/cli-width-3.0.0.tgz#a2f48437a2caa9a22436e794bf071ec9e61cedf6"
@@ -2678,6 +2779,11 @@ color@^4.0.1:
   dependencies:
     color-convert "^2.0.1"
     color-string "^1.6.0"
+
+colors@^1.1.2:
+  version "1.4.0"
+  resolved "https://registry.nlark.com/colors/download/colors-1.4.0.tgz#c50491479d4c1bdaed2c9ced32cf7c7dc2360f78"
+  integrity sha1-xQSRR51MG9rtLJztMs98fcI2D3g=
 
 combined-stream@^1.0.6, combined-stream@~1.0.6:
   version "1.0.8"
@@ -3158,7 +3264,7 @@ debug@^3.1.1, debug@^3.2.6:
   dependencies:
     ms "^2.1.1"
 
-debug@^4.0.1, debug@^4.1.0, debug@^4.1.1:
+debug@^4.0.1, debug@^4.1.0, debug@^4.1.1, debug@^4.3.0:
   version "4.3.2"
   resolved "https://registry.nlark.com/debug/download/debug-4.3.2.tgz?cache=0&sync_timestamp=1625374632845&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fdebug%2Fdownload%2Fdebug-4.3.2.tgz#f0a49c18ac8779e31d4a0c6029dfb76873c7428b"
   integrity sha1-8KScGKyHeeMdSgxgKd+3aHPHQos=
@@ -3196,6 +3302,11 @@ deepmerge@^1.5.2:
   version "1.5.2"
   resolved "https://registry.npm.taobao.org/deepmerge/download/deepmerge-1.5.2.tgz#10499d868844cdad4fee0842df8c7f6f0c95a753"
   integrity sha1-EEmdhohEza1P7ghC34x/bwyVp1M=
+
+deepmerge@^4.2.0:
+  version "4.2.2"
+  resolved "https://registry.npm.taobao.org/deepmerge/download/deepmerge-4.2.2.tgz#44d2ea3679b8f4d4ffba33f03d865fc1e7bf4955"
+  integrity sha1-RNLqNnm49NT/ujPwPYZfwee/SVU=
 
 default-gateway@^4.2.0:
   version "4.2.0"
@@ -3418,6 +3529,14 @@ domutils@^2.5.2, domutils@^2.6.0:
     dom-serializer "^1.0.1"
     domelementtype "^2.2.0"
     domhandler "^4.2.0"
+
+dot-object@^1.7.1:
+  version "1.9.0"
+  resolved "https://registry.npm.taobao.org/dot-object/download/dot-object-1.9.0.tgz#6e3d6d8379f794c5174599ddf05528f5990f076e"
+  integrity sha1-bj1tg3n3lMUXRZnd8FUo9ZkPB24=
+  dependencies:
+    commander "^2.20.0"
+    glob "^7.1.4"
 
 dot-prop@^5.2.0:
   version "5.3.0"
@@ -3660,7 +3779,7 @@ eslint-utils@^2.1.0:
   dependencies:
     eslint-visitor-keys "^1.1.0"
 
-eslint-visitor-keys@^1.0.0, eslint-visitor-keys@^1.1.0:
+eslint-visitor-keys@^1.0.0, eslint-visitor-keys@^1.1.0, eslint-visitor-keys@^1.3.0:
   version "1.3.0"
   resolved "https://registry.nlark.com/eslint-visitor-keys/download/eslint-visitor-keys-1.3.0.tgz?cache=0&sync_timestamp=1624559014210&other_urls=https%3A%2F%2Fregistry.nlark.com%2Feslint-visitor-keys%2Fdownload%2Feslint-visitor-keys-1.3.0.tgz#30ebd1ef7c2fdff01c3a4f151044af25fab0523e"
   integrity sha1-MOvR73wv3/AcOk8VEESvJfqwUj4=
@@ -3708,7 +3827,12 @@ eslint@^6.7.2:
     text-table "^0.2.0"
     v8-compile-cache "^2.0.3"
 
-espree@^6.1.2, espree@^6.2.1:
+esm@^3.2.13:
+  version "3.2.25"
+  resolved "https://registry.nlark.com/esm/download/esm-3.2.25.tgz#342c18c29d56157688ba5ce31f8431fbb795cc10"
+  integrity sha1-NCwYwp1WFXaIulzjH4Qx+7eVzBA=
+
+espree@^6.0.0, espree@^6.1.2, espree@^6.2.1:
   version "6.2.1"
   resolved "https://registry.nlark.com/espree/download/espree-6.2.1.tgz?cache=0&sync_timestamp=1631307150472&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fespree%2Fdownload%2Fespree-6.2.1.tgz#77fc72e1fd744a2052c20f38a5b575832e82734a"
   integrity sha1-d/xy4f10SiBSwg84pbV1gy6Cc0o=
@@ -4112,6 +4236,11 @@ flat-cache@^2.0.1:
     flatted "^2.0.0"
     rimraf "2.6.3"
     write "1.0.3"
+
+flat@^5.0.0:
+  version "5.0.2"
+  resolved "https://registry.nlark.com/flat/download/flat-5.0.2.tgz#8ca6fe332069ffa9d324c327198c598259ceb241"
+  integrity sha1-jKb+MyBp/6nTJMMnGYxZglnOskE=
 
 flatted@^2.0.0:
   version "2.0.2"
@@ -5180,6 +5309,11 @@ is-typedarray@~1.0.0:
   resolved "https://registry.npm.taobao.org/is-typedarray/download/is-typedarray-1.0.0.tgz#e479c80858df0c1b11ddda6940f96011fcda4a9a"
   integrity sha1-5HnICFjfDBsR3dppQPlgEfzaSpo=
 
+is-valid-glob@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npm.taobao.org/is-valid-glob/download/is-valid-glob-1.0.0.tgz#29bf3eff701be2d4d315dbacc39bc39fe8f601aa"
+  integrity sha1-Kb8+/3Ab4tTTFdusw5vDn+j2Aao=
+
 is-weakref@^1.0.1:
   version "1.0.1"
   resolved "https://registry.nlark.com/is-weakref/download/is-weakref-1.0.1.tgz#842dba4ec17fa9ac9850df2d6efbc1737274f2a2"
@@ -5261,6 +5395,13 @@ js-yaml@^3.13.1:
     argparse "^1.0.7"
     esprima "^4.0.0"
 
+js-yaml@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.nlark.com/js-yaml/download/js-yaml-4.1.0.tgz#c1fb65f8f5017901cdd2c951864ba18458a10602"
+  integrity sha1-wftl+PUBeQHN0slRhkuhhFihBgI=
+  dependencies:
+    argparse "^2.0.1"
+
 jsbn@~0.1.0:
   version "0.1.1"
   resolved "https://registry.npm.taobao.org/jsbn/download/jsbn-0.1.1.tgz#a5e654c2e5a2deb5f201d96cefbca80c0ef2f513"
@@ -5323,12 +5464,23 @@ json5@^1.0.1:
   dependencies:
     minimist "^1.2.0"
 
-json5@^2.1.2:
+json5@^2.1.2, json5@^2.2.0:
   version "2.2.0"
   resolved "https://registry.nlark.com/json5/download/json5-2.2.0.tgz#2dfefe720c6ba525d9ebd909950f0515316c89a3"
   integrity sha1-Lf7+cgxrpSXZ69kJlQ8FFTFsiaM=
   dependencies:
     minimist "^1.2.5"
+
+jsonc-eslint-parser@^1.0.1:
+  version "1.4.1"
+  resolved "https://registry.npmmirror.com/jsonc-eslint-parser/download/jsonc-eslint-parser-1.4.1.tgz#8cbe99f6f5199acbc5a823c4c0b6135411027fa6"
+  integrity sha1-jL6Z9vUZmsvFqCPEwLYTVBECf6Y=
+  dependencies:
+    acorn "^7.4.1"
+    eslint-utils "^2.1.0"
+    eslint-visitor-keys "^1.3.0"
+    espree "^6.0.0"
+    semver "^6.3.0"
 
 jsonfile@^4.0.0:
   version "4.0.0"
@@ -7774,15 +7926,15 @@ source-map-url@^0.4.0:
   resolved "https://registry.nlark.com/source-map-url/download/source-map-url-0.4.1.tgz#0af66605a745a5a2f91cf1bbf8a7afbc283dec56"
   integrity sha1-CvZmBadFpaL5HPG7+KevvCg97FY=
 
+source-map@0.6.1, source-map@^0.6.0, source-map@^0.6.1, source-map@~0.6.0, source-map@~0.6.1:
+  version "0.6.1"
+  resolved "https://registry.npm.taobao.org/source-map/download/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
+  integrity sha1-dHIq8y6WFOnCh6jQu95IteLxomM=
+
 source-map@^0.5.0, source-map@^0.5.6:
   version "0.5.7"
   resolved "https://registry.npm.taobao.org/source-map/download/source-map-0.5.7.tgz#8a039d2d1021d22d1ea14c80d8ea468ba2ef3fcc"
   integrity sha1-igOdLRAh0i0eoUyA2OpGi6LvP8w=
-
-source-map@^0.6.0, source-map@^0.6.1, source-map@~0.6.0, source-map@~0.6.1:
-  version "0.6.1"
-  resolved "https://registry.npm.taobao.org/source-map/download/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
-  integrity sha1-dHIq8y6WFOnCh6jQu95IteLxomM=
 
 source-map@^0.7.3:
   version "0.7.3"
@@ -7944,7 +8096,7 @@ strict-uri-encode@^1.0.0:
   resolved "https://registry.nlark.com/strict-uri-encode/download/strict-uri-encode-1.1.0.tgz#279b225df1d582b1f54e65addd4352e18faa0713"
   integrity sha1-J5siXfHVgrH1TmWt3UNS4Y+qBxM=
 
-string-width@^2.0.0:
+string-width@^2.0.0, string-width@^2.1.1:
   version "2.1.1"
   resolved "https://registry.npmmirror.com/string-width/download/string-width-2.1.1.tgz?cache=0&sync_timestamp=1632420968947&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fstring-width%2Fdownload%2Fstring-width-2.1.1.tgz#ab93f27a8dc13d28cac815c462143a6d9012ae9e"
   integrity sha1-q5Pyeo3BPSjKyBXEYhQ6bZASrp4=
@@ -8625,6 +8777,20 @@ vm-browserify@^1.0.1:
   resolved "https://registry.npm.taobao.org/vm-browserify/download/vm-browserify-1.1.2.tgz#78641c488b8e6ca91a75f511e7a3b32a86e5dda0"
   integrity sha1-eGQcSIuObKkadfUR56OzKobl3aA=
 
+vue-cli-plugin-i18n@~2.3.1:
+  version "2.3.1"
+  resolved "https://registry.npmmirror.com/vue-cli-plugin-i18n/download/vue-cli-plugin-i18n-2.3.1.tgz#193b1e481a02e044d847392b3d070e1a3dec954e"
+  integrity sha1-GTseSBoC4ETYRzkrPQcOGj3slU4=
+  dependencies:
+    debug "^4.3.0"
+    deepmerge "^4.2.0"
+    dotenv "^8.2.0"
+    flat "^5.0.0"
+    rimraf "^3.0.0"
+    vue "^2.6.11"
+    vue-i18n "^8.17.0"
+    vue-i18n-extract "1.0.2"
+
 vue-eslint-parser@^7.10.0:
   version "7.11.0"
   resolved "https://registry.nlark.com/vue-eslint-parser/download/vue-eslint-parser-7.11.0.tgz?cache=0&sync_timestamp=1630883407552&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fvue-eslint-parser%2Fdownload%2Fvue-eslint-parser-7.11.0.tgz#214b5dea961007fcffb2ee65b8912307628d0daf"
@@ -8643,10 +8809,32 @@ vue-hot-reload-api@^2.3.0:
   resolved "https://registry.nlark.com/vue-hot-reload-api/download/vue-hot-reload-api-2.3.4.tgz#532955cc1eb208a3d990b3a9f9a70574657e08f2"
   integrity sha1-UylVzB6yCKPZkLOp+acFdGV+CPI=
 
-vue-i18n@^8.26.5:
+vue-i18n-extract@1.0.2:
+  version "1.0.2"
+  resolved "https://registry.nlark.com/vue-i18n-extract/download/vue-i18n-extract-1.0.2.tgz#0a136e12d1634d6799e187aad81a7003d02f67a5"
+  integrity sha1-ChNuEtFjTWeZ4Yeq2BpwA9AvZ6U=
+  dependencies:
+    cli-table3 "^0.5.1"
+    dot-object "^1.7.1"
+    esm "^3.2.13"
+    glob "^7.1.3"
+    is-valid-glob "^1.0.0"
+    yargs "^13.2.2"
+
+vue-i18n@^8.17.0:
   version "8.26.5"
   resolved "https://registry.yarnpkg.com/vue-i18n/-/vue-i18n-8.26.5.tgz#b61e994e7ae83564c6aebd004543156bbdc7c7e9"
   integrity sha512-qYqfsFd8v2QFSLDAabqXXXpwjGvkuqJtTWqRpZPXpAFO6PArGH4A9vSplnA0HLmnB8km7OB5ZSdP8lkkX0rLew==
+
+vue-i18n@^9.1.0:
+  version "9.1.9"
+  resolved "https://registry.npmmirror.com/vue-i18n/download/vue-i18n-9.1.9.tgz#cb53e06ab5cc5b7eed59332f151caf48d47be9bb"
+  integrity sha1-y1PgarXMW37tWTMvFRyvSNR76bs=
+  dependencies:
+    "@intlify/core-base" "9.1.9"
+    "@intlify/shared" "9.1.9"
+    "@intlify/vue-devtools" "9.1.9"
+    "@vue/devtools-api" "^6.0.0-beta.7"
 
 "vue-loader-v16@npm:vue-loader@^16.1.0":
   version "16.8.1"
@@ -8687,6 +8875,11 @@ vue-template-es2015-compiler@^1.9.0:
   version "1.9.1"
   resolved "https://registry.nlark.com/vue-template-es2015-compiler/download/vue-template-es2015-compiler-1.9.1.tgz#1ee3bc9a16ecbf5118be334bb15f9c46f82f5825"
   integrity sha1-HuO8mhbsv1EYvjNLsV+cRvgvWCU=
+
+vue@^2.6.11:
+  version "2.6.14"
+  resolved "https://registry.npmmirror.com/vue/download/vue-2.6.14.tgz?cache=0&sync_timestamp=1633712907554&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fvue%2Fdownload%2Fvue-2.6.14.tgz#e51aa5250250d569a3fbad3a8a5a687d6036e235"
+  integrity sha1-5RqlJQJQ1Wmj+606ilpofWA24jU=
 
 vue@^3.0.0:
   version "3.2.19"
@@ -8999,6 +9192,15 @@ yallist@^4.0.0:
   resolved "https://registry.npm.taobao.org/yallist/download/yallist-4.0.0.tgz#9bb92790d9c0effec63be73519e11a35019a3a72"
   integrity sha1-m7knkNnA7/7GO+c1GeEaNQGaOnI=
 
+yaml-eslint-parser@^0.3.2:
+  version "0.3.2"
+  resolved "https://registry.nlark.com/yaml-eslint-parser/download/yaml-eslint-parser-0.3.2.tgz#c7f5f3904f1c06ad55dc7131a731b018426b4898"
+  integrity sha1-x/XzkE8cBq1V3HExpzGwGEJrSJg=
+  dependencies:
+    eslint-visitor-keys "^1.3.0"
+    lodash "^4.17.20"
+    yaml "^1.10.0"
+
 yaml@^1.10.0, yaml@^1.10.2:
   version "1.10.2"
   resolved "https://registry.yarnpkg.com/yaml/-/yaml-1.10.2.tgz#2301c5ffbf12b467de8da2333a459e29e7920e4b"
@@ -9017,7 +9219,7 @@ yargs-parser@^20.2.2:
   resolved "https://registry.nlark.com/yargs-parser/download/yargs-parser-20.2.9.tgz#2eb7dc3b0289718fc295f362753845c41a0c94ee"
   integrity sha1-LrfcOwKJcY/ClfNidThFxBoMlO4=
 
-yargs@^13.3.2:
+yargs@^13.2.2, yargs@^13.3.2:
   version "13.3.2"
   resolved "https://registry.npmmirror.com/yargs/download/yargs-13.3.2.tgz?cache=0&sync_timestamp=1632604808457&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fyargs%2Fdownload%2Fyargs-13.3.2.tgz#ad7ffefec1aa59565ac915f82dccb38a9c31a2dd"
   integrity sha1-rX/+/sGqWVZayRX4Lcyzipwxot0=

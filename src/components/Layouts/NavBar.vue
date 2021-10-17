@@ -16,11 +16,11 @@
     </div>
     <div class="flex items-center hidden lg:flex">
       <div
+        @click="switchLang"
         class="mr-6 cursor-pointer  font-bold hover:bg-gray-500 p-2 rounded-full"
       >
-        ENG
+        {{ $i18n.locale }}
       </div>
-
       <div
         @click="logout"
         class="bg-red-600 rounded-md  border-red-600 hover:bg-red-900 px-6 text-white py-1  cursor-pointer"
@@ -42,13 +42,14 @@ export default {
     user() {
       return this.$store.state.user.user;
     },
+    navItems() {
+      return [
+        { title: this.$t("nav.home"), to: "/", exact: true },
+        { title: this.$t("nav.profile"), to: "/profile", exact: false },
+      ];
+    },
   },
-  data: () => ({
-    navItems: [
-      { title: "HOME", to: "/", exact: true },
-      { title: "PROFILE", to: "/profile", exact: false },
-    ],
-  }),
+  data: () => ({}),
   props: {
     toggleDrawer: Function,
   },
@@ -56,6 +57,11 @@ export default {
     logout() {
       localStorage.setItem("jwt_token", null);
       localStorage.setItem("loggedIn", 0);
+      window.location.reload();
+    },
+    switchLang() {
+      const currentLang = this.$i18n.locale;
+      localStorage.setItem("lang", currentLang == "en" ? "kh" : "en");
       window.location.reload();
     },
   },

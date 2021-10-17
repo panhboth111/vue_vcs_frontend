@@ -5,7 +5,7 @@
   <div class="mt-10">
     <div class="flex justify-center text-xl font-bold">
       <p>
-        <span class="mr-4"> USER INFORMATION</span>
+        <span class="mr-4"> {{ $t("profile.user_information") }}</span>
 
         <i
           class="fas fa-camera fa-xs cursor-pointer hover:bg-gray-200 p-2 rounded-full "
@@ -53,18 +53,23 @@ import axios from "axios";
 export default {
   components: {},
   data: () => ({
-    fields: [
-      { label: "Display Name", property: "displayName", type: "text" },
-      { label: "Email", property: "email", type: "text" },
-      { label: "Phone", property: "phone", type: "text" },
-    ],
-
     disabled: true,
     error: null,
   }),
   computed: {
     user() {
       return this.$store.state.user.displayUser;
+    },
+    fields() {
+      return [
+        {
+          label: this.$t("profile.display_name"),
+          property: "displayName",
+          type: "text",
+        },
+        { label: this.$t("profile.email"), property: "email", type: "text" },
+        { label: this.$t("profile.phone"), property: "phone", type: "text" },
+      ];
     },
   },
   methods: {

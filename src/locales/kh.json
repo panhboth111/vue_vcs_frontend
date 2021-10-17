@@ -1,0 +1,17 @@
+{
+  "nav": {
+    "home": "ទំព័រដំបូង",
+    "profile": "ប្រវត្តិរូប"
+  },
+  "start_a_meeting": "បង្កើតការប្រជុំ",
+  "ongoing_meetings": "កិច្ចប្រជុំដែលកំពុងបន្ត",
+  "upcoming_meetings": "ការប្រជុំខាងមុខនេះ",
+  "schedule_meeting": "កំណត់ពេលប្រជុំ",
+  "instant_meeting": "បង្កើតឥឡូវនេះ",
+  "profile": {
+    "user_information": "ព័ត៌មានអ្នកប្រើប្រាស់",
+    "display_name": "ឈ្មោះបង្ហាញ",
+    "email": "អ៊ីមែល",
+    "phone": "លេខទូរសព្ទ"
+  }
+}

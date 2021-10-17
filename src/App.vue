@@ -5,6 +5,7 @@
       :toggleDrawer="toggleDrawer"
     />
     <Drawer v-if="drawer" />
+
     <router-view />
     <LoadingDialog v-if="$store.state.ui.loading" />
   </div>
