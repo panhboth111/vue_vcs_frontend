@@ -146,6 +146,7 @@ export default {
       this.meetingObj[property] = $event.target.value;
     },
     attendeeSelected(attendee) {
+      console.log("selected");
       this.meetingObj.attendees.push(attendee);
       this.meetingObj.attendeeIds.push(attendee.id);
       this.users = this.users.filter((u) => u.id !== attendee.id);

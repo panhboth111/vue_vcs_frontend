@@ -51,7 +51,6 @@
             border-gray-600 p-2 w-full "
               @input="attendeesSearch($event)"
               @click="dropDownUsersClicked"
-              @blur="attendeesFieldBlur"
             />
             <div class="relative" v-if="attendeesDropDown">
               <ul class="absolute bg-white w-full">
