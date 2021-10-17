@@ -3,16 +3,10 @@
     <div class="bg-accent text-white py-5 px-10 rounded-full text-2xl">NP</div>
   </div>
   <div class="mt-10">
-    <div class="flex justify-center text-xl font-bold">
-      <p>
-        <span class="mr-4"> {{ $t("profile.user_information") }}</span>
+    <div class="flex justify-center items-center text-xl font-bold">
+      <span class="mr-4"> {{ $t("profile.user_information") }}</span>
 
-        <i
-          class="fas fa-camera fa-xs cursor-pointer hover:bg-gray-200 p-2 rounded-full "
-          aria-hidden="true"
-          @click="toggleEdit"
-        ></i>
-      </p>
+      <Pencil class="cursor-pointer  " @click="toggleEdit" />
     </div>
     <div class="flex justify-center">
       <form @submit.prevent="submit" class="mt-2 text-lg px-2">
@@ -50,8 +44,9 @@
 
 <script>
 import axios from "axios";
+import Pencil from "../components/Icons/Pencil.vue";
 export default {
-  components: {},
+  components: { Pencil },
   data: () => ({
     disabled: true,
     error: null,
