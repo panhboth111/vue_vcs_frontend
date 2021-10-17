@@ -48,6 +48,7 @@ export default {
     formartTime(d) {
       const date = new Date(d);
       var hours = date.getHours();
+
       var minutes = date.getMinutes();
       var ampm = hours >= 12 ? "PM" : "AM";
       hours = hours % 12;

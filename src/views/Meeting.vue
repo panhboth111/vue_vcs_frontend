@@ -13,12 +13,12 @@ export default {
   }),
   methods: {
     startMeeting() {
-      const user = this.$store.state.user.user
+      const user = this.$store.state.user.user;
       this.options = {
         roomName: this.$route.params.id,
         width: "100%",
         height: "100%",
-        configOverwrite: { prejoinPageEnabled: false },
+        configOverwrite: { prejoinPageEnabled: true },
         interfaceConfigOverwrite: {
           // overwrite interface properties
         },
@@ -40,7 +40,7 @@ export default {
     if (window.JitsiMeetExternalAPI) {
       this.startMeeting();
     }
-    localStorage.setItem("requestedPath","")
+    localStorage.setItem("requestedPath", "");
   },
 };
 </script>

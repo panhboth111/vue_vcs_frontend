@@ -58,28 +58,28 @@ export default {
       { label: "Email", property: "email", type: "text" },
       { label: "Phone", property: "phone", type: "text" },
     ],
-    user: {},
+
     disabled: true,
   }),
-  methods: {
-    initialize() {
-      this.user = { ...this.$store.state.user.user };
+  computed: {
+    user() {
+      return this.$store.state.user.displayUser;
     },
+  },
+  methods: {
     toggleEdit() {
       if (!this.disabled) {
-        this.user = { ...this.$store.state.user.user };
+        this.$store.dispatch("user/resetUser");
       }
       this.disabled = !this.disabled;
     },
     cancelEdit() {
-      this.user = { ...this.$store.state.user.user };
+      this.$store.dispatch("user/resetUser");
 
       this.disabled = true;
     },
   },
-  created() {
-    this.initialize();
-  },
+  created() {},
 };
 </script>
 

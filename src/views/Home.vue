@@ -143,7 +143,11 @@ export default {
       );
     },
     fieldInput($event, property) {
-      this.meetingObj[property] = $event.target.value;
+      let data = $event.target.value;
+      if (property == "start_date" || property == "end_date") {
+        data = new Date($event.target.value).toISOString();
+      }
+      this.meetingObj[property] = data;
     },
     attendeeSelected(attendee) {
       console.log("selected");
@@ -192,9 +196,13 @@ export default {
         this.$store.dispatch("ui/toggleLoading", true);
         const { attendees, ...data } = this.meetingObj;
         const jwt_token = localStorage.getItem("jwt_token");
+        console.log("straight out of the input field");
+        console.log(data);
         const res = await axios.post("/meeting/scheduled", data, {
           headers: { Authorization: `Bearer ${jwt_token}` },
         });
+        console.log("response from server");
+        console.log(res.data);
         this.upComingMeetings.push(res.data);
         this.dialog = false;
         this.$store.dispatch("ui/toggleLoading", false);
