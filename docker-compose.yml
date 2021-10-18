@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  amk-notification-system-cms:
+    container_name: amk-notification-system-cms
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      VUE_APP_BASE_URL: ${VUE_APP_BASE_URL}
+    ports:
+      - 80:80
