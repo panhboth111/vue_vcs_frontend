@@ -147,7 +147,6 @@ export default {
         const res = await axios.put("/user", submitUserData, {
           headers: { Authorization: `Bearer ${jwt_token}` },
         });
-        console.log(res.data);
         this.$store.dispatch("ui/toggleLoading", false);
         this.disabled = true;
       } catch (error) {

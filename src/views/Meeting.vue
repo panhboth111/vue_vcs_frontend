@@ -9,7 +9,7 @@ export default {
   data: () => ({
     options: {},
     api: {},
-    domain: "meet.jit.si",
+    domain: "rcaf-jitsi.sarkhsolution.com",
   }),
   methods: {
     startMeeting() {
