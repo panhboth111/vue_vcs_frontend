@@ -1,6 +1,8 @@
 <template>
   <div class="flex justify-center items-center bg-red-300 h-64 cover_img ">
-    <div class="bg-accent text-white py-5 px-10 rounded-full text-2xl">NP</div>
+    <div class="bg-accent text-white py-6 px-16 rounded-full text-2xl">
+      {{ user.username[0].toUpperCase() }}
+    </div>
   </div>
   <div class="mt-10">
     <div class="flex justify-center items-center text-xl font-bold">
