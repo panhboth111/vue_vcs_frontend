@@ -1,12 +1,14 @@
 <template>
   <div class="flex justify-center items-center bg-white px-10 py-4 ">
     <form action="" class="mt-6" @submit.prevent="login">
-      <div class="text-center mb-7">
-        <div class="text-2xl font-bold text-primary">SARKH</div>
+      <div class="text-center mb-12">
+        <div class="flex justify-center">
+          <img src="../../assets/images/logo.png" width="200" alt="" />
+        </div>
         <div class="text-xl font-light">VIDEO CONFERENCING SYSTEM</div>
       </div>
       <input
-        placeholder="username"
+        :placeholder="$t('username')"
         type="text"
         class="border py-2 px-2 w-full"
         name="username"
@@ -14,7 +16,7 @@
       />
       <br />
       <input
-        placeholder="password"
+        :placeholder="$t('password')"
         type="password"
         class="border mt-2 py-2 px-2 w-full"
         name="password"
@@ -26,7 +28,7 @@
         type="submit"
         class="w-full bg-primary text-white font-bold py-1 mt-4"
       >
-        LOGIN
+        {{ $t("login") }}
       </button>
     </form>
   </div>

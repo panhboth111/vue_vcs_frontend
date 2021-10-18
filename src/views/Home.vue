@@ -81,8 +81,7 @@
       :dropDownUsersClicked="dropDownUsersClicked"
       :fieldInput="fieldInput"
       :attendeeRemove="attendeeRemove"
-      :participantSelected="participantSelected"
-      :participantClicked="participantClicked"
+      :attendeesFieldBlur="attendeesFieldBlur"
     />
   </div>
 </template>
@@ -131,13 +130,6 @@ export default {
   }),
   computed: {},
   methods: {
-    participantSelected($event) {
-      console.log($event);
-      $event.target.value = "";
-    },
-    participantClicked() {
-      console.log("trigerred");
-    },
     attendeesFieldBlur() {
       this.attendeesDropDown = false;
     },
@@ -256,6 +248,14 @@ export default {
   },
   async created() {
     await this.init();
+    let self = this;
+
+    window.addEventListener("click", function(e) {
+      // close dropdown when clicked outside
+      if (!self.$el.contains(e.target)) {
+        self.attendeesDropDown = false;
+      }
+    });
   },
 };
 </script>

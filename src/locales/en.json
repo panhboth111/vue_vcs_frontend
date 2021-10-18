@@ -18,5 +18,18 @@
     "new_password": "New Password",
     "password": "Password",
     "confirm_password": "Confirm Password"
-  }
+  },
+  "schedule": {
+    "create": "CREATE A MEETING",
+    "title": "MEETING TITLE:",
+    "start": "MEETING START:",
+    "end": "MEETING END:",
+    "participants": "PARTICIPANTS:"
+  },
+  "create": "create",
+  "cancel": "Cancel",
+  "username": "username",
+  "password": "password",
+  "logout": "logout",
+  "login": "Login"
 }

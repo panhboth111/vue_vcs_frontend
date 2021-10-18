@@ -2,7 +2,7 @@
   <router-link :to="`/meeting/${meetingObj.id}`">
     <div class="cursor-pointer drop-shadow rounded-lg hover:opacity-60 ">
       <img
-        src="../../assets/images/thumbnail1.jpg"
+        src="../../assets/images/meeting_bg.png"
         class="rounded-t-lg h-48  w-full"
       />
       <div class="bg-gray-100 px-4 py-6 rounded-b-lg">
