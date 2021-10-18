@@ -40,7 +40,11 @@ export default {
     if (window.JitsiMeetExternalAPI) {
       this.startMeeting();
     }
+
     localStorage.setItem("requestedPath", "");
+  },
+  created() {
+    this.$store.dispatch("user/init");
   },
 };
 </script>

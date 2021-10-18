@@ -6,7 +6,8 @@
     <div class="flex justify-center items-center text-xl font-bold">
       <span class="mr-4"> {{ $t("profile.user_information") }}</span>
 
-      <Pencil class="cursor-pointer  " @click="toggleEdit" />
+      <Pencil class="cursor-pointer  mr-2" @click="toggleEdit" />
+      <Lock class="cursor-pointer  " @click="passwordDialog = true" />
     </div>
     <div class="flex justify-center">
       <form @submit.prevent="submit" class="mt-2 text-lg px-2">
@@ -39,17 +40,33 @@
         </button>
       </form>
     </div>
+    <ChangePasswordDialog
+      v-if="passwordDialog"
+      :closeDialog="closeDialog"
+      :fieldInput="fieldInput"
+      :saveChangePassword="saveChangePassword"
+      :errorMessage="errorMessage"
+    />
   </div>
 </template>
 
 <script>
 import axios from "axios";
+import ChangePasswordDialog from "../components/Profile/ChangePasswordDialog.vue";
 import Pencil from "../components/Icons/Pencil.vue";
+import Lock from "../components/Icons/Lock.vue";
 export default {
-  components: { Pencil },
+  components: { Pencil, Lock, ChangePasswordDialog },
   data: () => ({
     disabled: true,
     error: null,
+    passwordDialog: false,
+    changePasswordObj: {
+      password: "",
+      newPassword: "",
+      confirmPassword: "",
+    },
+    errorMessage: null,
   }),
   computed: {
     user() {
@@ -68,6 +85,48 @@ export default {
     },
   },
   methods: {
+    closeDialog() {
+      console.log("called");
+      this.passwordDialog = false;
+      this.changePasswordObj = {
+        password: "",
+        newPassword: "",
+        confirmPassword: "",
+      };
+    },
+    async saveChangePassword() {
+      if (
+        this.changePasswordObj.newPassword !==
+        this.changePasswordObj.confirmPassword
+      ) {
+        this.errorMessage = "new password does not match with confirm password";
+      }
+      try {
+        this.$store.dispatch("ui/toggleLoading", true);
+        const jwt_token = localStorage.getItem("jwt_token");
+        const res = await axios.put(
+          "/user/changepassword",
+          this.changePasswordObj,
+          {
+            headers: { Authorization: `Bearer ${jwt_token}` },
+          }
+        );
+        this.$store.dispatch("ui/toggleLoading", false);
+        this.passwordDialog = false;
+      } catch (error) {
+        this.$store.dispatch("ui/toggleLoading", false);
+        this.errorMessage = "incorrect password";
+        this.changePasswordObj = {
+          password: "",
+          newPassword: "",
+          confirmPassword: "",
+        };
+      }
+      console.log(this.changePasswordObj);
+    },
+    fieldInput($event, property) {
+      this.changePasswordObj[property] = $event.target.value;
+    },
     toggleEdit() {
       if (!this.disabled) {
         this.$store.dispatch("user/resetUser");

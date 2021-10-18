@@ -13,6 +13,10 @@
     "user_information": "User Information",
     "display_name": "Display Name",
     "email": "Email",
-    "phone": "Phone"
+    "phone": "Phone",
+    "change_password": "Change Password",
+    "new_password": "New Password",
+    "password": "Password",
+    "confirm_password": "Confirm Password"
   }
 }
