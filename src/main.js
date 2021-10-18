@@ -7,7 +7,7 @@ import axios from "axios";
 import i18n from "./i18n";
 import { lang } from "moment";
 
-axios.defaults.baseURL = "http://172.104.47.216:3000/api";
+axios.defaults.baseURL = "https://rcaf-vcs-api.sarkhsolution.com/api";
 
 router.beforeEach((to, from, next) => {
   let language = to.params.lang;
