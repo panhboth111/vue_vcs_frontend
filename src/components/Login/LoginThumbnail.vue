@@ -10,8 +10,8 @@ export default {};
 
 <style>
 .login-bg {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2)),
-    url("../../assets/images/login_bg3.jpg");
+  background: url("../../assets/images/login.jpg");
+
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
